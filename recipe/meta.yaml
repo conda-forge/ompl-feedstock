@@ -11,7 +11,7 @@ source:
 
 build:
   number: 1
-  skip: true  # [win]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -30,10 +30,11 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/lib/libompl${SHLIB_EXT}
-    - test -f $PREFIX/lib/pkgconfig/ompl.pc
-    - test -f $PREFIX/share/ompl/cmake/omplConfig.cmake
-    - test -f $PREFIX/include/ompl/geometric/planners/rrt/RRT.h
+    - test -f $PREFIX/lib/libompl${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/pkgconfig/ompl.pc  # [unix]
+    - test -f $PREFIX/share/ompl/cmake/omplConfig.cmake  # [unix]
+    - test -f $PREFIX/include/ompl/geometric/planners/rrt/RRT.h  # [unix]
+    - if not exist %LIBRARY_LIB%\\ompl.lib exit 1  # [win]
 
 about: 
   home: https://ompl.kavrakilab.org/
@@ -58,3 +59,4 @@ about:
 extra:
   recipe-maintainers:
     - wolfv
+    - seanyen
