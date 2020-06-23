@@ -19,7 +19,7 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
 	  -DCMAKE_INSTALL_LIBDIR=lib \
 	  -DOMPL_BUILD_DEMOS=OFF \
           -DPYPY=/pypy3.6-v7.3.1-linux64/bin/pypy3 \
-          -D-DPYTHON_EXEC=$PYTHON \
+          -DPYTHON_EXEC=$PYTHON \
           -DOMPL_BUILD_PYTESTS=OFF \
           -DOMPL_BUILD_PYBINDINGS=ON \
       $SRC_DIR
