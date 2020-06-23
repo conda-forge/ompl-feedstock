@@ -20,7 +20,7 @@ requirements:
     - cmake
     - pkg-config
   host:
-    - boost >=1.72
+    - boost
     - eigen
     - flann
     - libode
