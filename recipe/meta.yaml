@@ -26,6 +26,7 @@ requirements:
     - flann
     - libode
     - numpy
+    - python
   run:
     - libode
     - boost-cpp

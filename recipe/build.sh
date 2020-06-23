@@ -14,6 +14,8 @@ export PATH=${HOME}/castxml/bin:${PATH}
 # pypy to speed-up Python bindings
 wget -q -O- https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.3.1-linux64.tar.bz2 | tar jxf -
 
+env
+
 cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_INSTALL_LIBDIR=lib \
