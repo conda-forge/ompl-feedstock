@@ -16,9 +16,12 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_INSTALL_LIBDIR=lib \
 	  -DOMPL_BUILD_DEMOS=OFF \
-          -D OMPL_BUILD_PYBINDINGS:BOOL=ON \
+          -D-DPYTHON_EXEC=$PYTHON \
+          -DOMPL_BUILD_PYTESTS=OFF \
+          -DOMPL_BUILD_PYBINDINGS=ON \
       $SRC_DIR
 
+VERBOSE=1 make update_bindings -j${CPU_COUNT}
 VERBOSE=1 make -j${CPU_COUNT}
 make install
 
