@@ -30,6 +30,8 @@ requirements:
   run:
     - libode
     - boost-cpp
+    - python
+    - numpy
 
 test:
   commands:
