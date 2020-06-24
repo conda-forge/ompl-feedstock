@@ -4,7 +4,7 @@ set -ex
 mkdir build && cd build
 
 conda info -e
-echo $PYTHON
+echo PYTHON: $PYTHON
 conda list
 
 # python dependencies

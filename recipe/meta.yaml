@@ -27,6 +27,7 @@ requirements:
     - libode
     - numpy
     - python
+    - pip
   run:
     - libode
     - boost
