@@ -29,9 +29,9 @@ requirements:
     - python
   run:
     - libode
-    - boost-cpp
+    - boost
     - python
-    - numpy
+    - {{ pin_compatible('numpy') }}
 
 test:
   commands:
