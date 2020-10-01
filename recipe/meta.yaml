@@ -19,14 +19,20 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - pkg-config
+    - wget
   host:
-    - boost-cpp >=1.72
+    - boost
     - eigen
     - flann
     - libode
+    - numpy
+    - python
+    - pip
   run:
     - libode
-    - boost-cpp
+    - boost
+    - python
+    - {{ pin_compatible('numpy') }}
 
 test:
   commands:
