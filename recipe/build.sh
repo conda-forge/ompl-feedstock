@@ -6,10 +6,11 @@ cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_INSTALL_LIBDIR=lib \
 	  -DOMPL_BUILD_DEMOS=OFF \
+	  -G "Ninja" \
       $SRC_DIR
 
-VERBOSE=1 make -j${CPU_COUNT}
-make install
+ninja
+ninja install
 
 # run tests
-make test
+ninja test

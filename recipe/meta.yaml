@@ -11,13 +11,13 @@ source:
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - ninja
     - pkg-config
   host:
     - boost-cpp >=1.72
@@ -33,7 +33,7 @@ test:
     - test -f $PREFIX/lib/libompl${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/lib/pkgconfig/ompl.pc  # [unix]
     - test -f $PREFIX/share/ompl/cmake/omplConfig.cmake  # [unix]
-    - test -f $PREFIX/include/ompl/geometric/planners/rrt/RRT.h  # [unix]
+    - test -f $PREFIX/include/ompl-1.5/ompl/geometric/planners/rrt/RRT.h  # [unix]
     - if not exist %LIBRARY_LIB%\\ompl.lib exit 1  # [win]
 
 about:
