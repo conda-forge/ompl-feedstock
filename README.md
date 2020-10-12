@@ -9,7 +9,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ompl-feedstock/
 
 Summary: The Open Motion Planning Library (OMPL)
 
-Development: ['https://github.com/ompl/ompl', 'https://ompl.kavrakilab.org/']
+Development: https://github.com/ompl/ompl
+
+Documentation: https://ompl.kavrakilab.org/
 
 The Open Motion Planning Library (OMPL) consists of a set of sampling-based motion planning algorithms. The content
 of the library is limited to these algorithms, which means there is no
