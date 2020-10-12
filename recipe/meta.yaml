@@ -53,9 +53,8 @@ about:
     educational partners to use and further develop the material. Please contact
     us for more information.
 
-  dev_url:
-    - https://github.com/ompl/ompl
-    - https://ompl.kavrakilab.org/
+  dev_url: https://github.com/ompl/ompl
+  doc_url: https://ompl.kavrakilab.org/
 
 extra:
   recipe-maintainers:
