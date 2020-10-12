@@ -8,13 +8,12 @@ jobs:
     vmImage: macOS-10.15
   strategy:
     matrix:
-      osx_64_boost_cpp1.72.0:
-        CONFIG: osx_64_boost_cpp1.72.0
+      osx_64_boost_cpp1.72.0c_compiler_version10cxx_compiler_version10:
+        CONFIG: osx_64_boost_cpp1.72.0c_compiler_version10cxx_compiler_version10
         UPLOAD_PACKAGES: 'True'
-      osx_64_boost_cpp1.74.0:
-        CONFIG: osx_64_boost_cpp1.74.0
+      osx_64_boost_cpp1.74.0c_compiler_version10cxx_compiler_version10:
+        CONFIG: osx_64_boost_cpp1.74.0c_compiler_version10cxx_compiler_version10
         UPLOAD_PACKAGES: 'True'
-    maxParallel: 8
   timeoutInMinutes: 360
 
   steps:
