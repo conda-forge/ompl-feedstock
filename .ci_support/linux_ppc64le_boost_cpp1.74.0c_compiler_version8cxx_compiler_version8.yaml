@@ -1,13 +1,19 @@
 boost_cpp:
 - 1.74.0
 c_compiler:
-- vs2017
+- gcc
+c_compiler_version:
+- '8'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2017
+- gxx
+cxx_compiler_version:
+- '8'
+docker_image:
+- condaforge/linux-anvil-ppc64le
 flann:
 - 1.9.1
 pin_run_as_build:
@@ -16,4 +22,7 @@ pin_run_as_build:
   flann:
     max_pin: x.x.x
 target_platform:
-- win-64
+- linux-ppc64le
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
