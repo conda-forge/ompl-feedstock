@@ -5,9 +5,11 @@ Home: https://ompl.kavrakilab.org/
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ompl-feedstock/blob/master/LICENSE.txt)
 
 Summary: The Open Motion Planning Library (OMPL)
+
+Development: https://ompl.kavrakilab.org/
 
 The Open Motion Planning Library (OMPL) consists of a set of sampling-based motion planning algorithms. The content
 of the library is limited to these algorithms, which means there is no
@@ -24,7 +26,21 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>Travis</td>
+    <td>
+      <a href="https://travis-ci.com/conda-forge/ompl-feedstock">
+        <img alt="macOS" src="https://img.shields.io/travis/com/conda-forge/ompl-feedstock/master.svg?label=macOS">
+      </a>
+    </td>
+  </tr><tr>
+    <td>Drone</td>
+    <td>
+      <a href="https://cloud.drone.io/conda-forge/ompl-feedstock">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/ompl-feedstock/master.svg?label=Linux">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -38,31 +54,59 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_boost_cpp1.72.0</td>
+              <td>linux_64_boost_cpp1.72.0c_compiler_version7cxx_compiler_version7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.72.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.72.0c_compiler_version7cxx_compiler_version7" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_boost_cpp1.74.0</td>
+              <td>linux_64_boost_cpp1.74.0c_compiler_version7cxx_compiler_version7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.74.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_64_boost_cpp1.74.0c_compiler_version7cxx_compiler_version7" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_boost_cpp1.72.0</td>
+              <td>linux_aarch64_boost_cpp1.72.0c_compiler_version7cxx_compiler_version7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.72.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_boost_cpp1.72.0c_compiler_version7cxx_compiler_version7" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_boost_cpp1.74.0</td>
+              <td>linux_aarch64_boost_cpp1.74.0c_compiler_version7cxx_compiler_version7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.74.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_boost_cpp1.74.0c_compiler_version7cxx_compiler_version7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_boost_cpp1.72.0c_compiler_version8cxx_compiler_version8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_boost_cpp1.72.0c_compiler_version8cxx_compiler_version8" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_boost_cpp1.74.0c_compiler_version8cxx_compiler_version8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_boost_cpp1.74.0c_compiler_version8cxx_compiler_version8" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_boost_cpp1.72.0c_compiler_version10cxx_compiler_version10</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.72.0c_compiler_version10cxx_compiler_version10" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_boost_cpp1.74.0c_compiler_version10cxx_compiler_version10</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9152&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ompl-feedstock?branchName=master&jobName=osx&configuration=osx_64_boost_cpp1.74.0c_compiler_version10cxx_compiler_version10" alt="variant">
                 </a>
               </td>
             </tr><tr>
