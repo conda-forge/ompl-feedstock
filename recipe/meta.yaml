@@ -1,5 +1,5 @@
 {% set name = "ompl" %}
-{% set version = "1.4.2" %}
+{% set version = "1.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,19 @@ package:
 
 source:
   url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
-  sha256: e782f723e1821f80ba6d6c61e65eed73eefd2b29c9c935f0e0b181d9395a0218
+  sha256: a7df8611b7823ef44c731f02897571adfc23551e85c6618d926e7720004267a5
 
 build:
-  number: 3
-  skip: true  # [win and vc<14]
+  number: 0
+  run_exports:
+    - {{ pin_subpackage(name, max_pin='x.x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - ninja
     - pkg-config
   host:
     - boost-cpp >=1.72
@@ -33,15 +35,15 @@ test:
     - test -f $PREFIX/lib/libompl${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/lib/pkgconfig/ompl.pc  # [unix]
     - test -f $PREFIX/share/ompl/cmake/omplConfig.cmake  # [unix]
-    - test -f $PREFIX/include/ompl/geometric/planners/rrt/RRT.h  # [unix]
+    - test -f $PREFIX/include/ompl-1.5/ompl/geometric/planners/rrt/RRT.h  # [unix]
     - if not exist %LIBRARY_LIB%\\ompl.lib exit 1  # [win]
 
-about: 
+about:
   home: https://ompl.kavrakilab.org/
   license: BSD-3-Clause
-  license_family: BSD 
-  license_file: LICENSE 
-  summary: 'The Open Motion Planning Library (OMPL)' 
+  license_family: BSD
+  license_file: LICENSE
+  summary: 'The Open Motion Planning Library (OMPL)'
   description: |
     The Open Motion Planning Library (OMPL) consists of a set of sampling-based motion planning algorithms. The content
     of the library is limited to these algorithms, which means there is no
@@ -54,7 +56,7 @@ about:
     us for more information.
 
   dev_url: https://github.com/ompl/ompl
-  dev_url: https://ompl.kavrakilab.org/
+  doc_url: https://ompl.kavrakilab.org/
 
 extra:
   recipe-maintainers:
