@@ -1,5 +1,5 @@
 {% set name = "ompl" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
-  sha256: a7df8611b7823ef44c731f02897571adfc23551e85c6618d926e7720004267a5
+  sha256: db1665dd2163697437ef155668fdde6101109e064a2d1a04148e45b3747d5f98
 
 build:
   number: 0
