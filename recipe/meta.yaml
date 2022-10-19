@@ -10,7 +10,7 @@ source:
   sha256: db1665dd2163697437ef155668fdde6101109e064a2d1a04148e45b3747d5f98
 
 build:
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -21,13 +21,19 @@ requirements:
     - cmake
     - ninja
     - pkg-config
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
   host:
     - boost-cpp
     - eigen
     - flann
     - libode
+    - python
+    - numpy
   run:
     - boost-cpp
+    - python
 
 test:
   commands:
