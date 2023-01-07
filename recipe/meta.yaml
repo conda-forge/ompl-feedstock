@@ -1,5 +1,5 @@
 {% set name = "ompl" %}
-{% set version = "1.5.2" %}
+{% set version = "1.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
-  sha256: db1665dd2163697437ef155668fdde6101109e064a2d1a04148e45b3747d5f98
+  sha256: f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625
 
 build:
-  number: 4
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -48,7 +48,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'The Open Motion Planning Library (OMPL)'
+  summary: The Open Motion Planning Library (OMPL)
   description: |
     The Open Motion Planning Library (OMPL) consists of a set of sampling-based motion planning algorithms. The content
     of the library is limited to these algorithms, which means there is no
