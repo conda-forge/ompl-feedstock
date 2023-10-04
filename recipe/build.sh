@@ -15,5 +15,5 @@ ninja install
 
 if [[ "$target_platform" != "linux-aarch64" && "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
 	# run tests, currently failing on arm64 for some reason
-	ninja test
+	ctest --progress --output-on-failure
 fi
