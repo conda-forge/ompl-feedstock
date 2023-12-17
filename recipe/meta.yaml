@@ -64,5 +64,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - traversaro
     - wolfv
     - seanyen
