@@ -27,7 +27,7 @@ requirements:
   host:
     - libboost-devel
     - eigen
-    - flann
+    - flann 1.9.1
     - libode
     - python
     - numpy
