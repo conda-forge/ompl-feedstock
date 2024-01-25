@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
   sha256: db1665dd2163697437ef155668fdde6101109e064a2d1a04148e45b3747d5f98
+  patches:
+    - linklz4.patch
 
 build:
   number: 6
@@ -27,7 +29,7 @@ requirements:
   host:
     - libboost-devel
     - eigen
-    - flann 1.9.1
+    - flann
     - libode
     - python
     - numpy
