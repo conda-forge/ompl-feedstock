@@ -1,0 +1,25 @@
+From ac412283b78d39d92dc41419ac9b42a64966fa54 Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Thu, 25 Jan 2024 11:41:02 +0100
+Subject: [PATCH] Link lz4 in test_nearestneighbors
+
+---
+ tests/CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index 8e4044f169..24338257a5 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -18,7 +18,9 @@ if (OMPL_BUILD_TESTS)
+     add_ompl_test(test_gridb datastructures/gridb.cpp)
+     add_ompl_test(test_nearestneighbors datastructures/nearestneighbors.cpp)
+     if(flann_FOUND)
+-        target_link_libraries(test_nearestneighbors ${FLANN_LIBRARIES})
++        find_package(PkgConfig REQUIRED)
++        pkg_check_modules(LZ4 REQUIRED liblz4)
++        target_link_libraries(test_nearestneighbors ${FLANN_LIBRARIES} ${LZ4_LINK_LIBRARIES})
+     endif()
+     add_ompl_test(test_pdf datastructures/pdf.cpp)
+ 
+

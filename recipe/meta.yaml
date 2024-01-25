@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
   sha256: db1665dd2163697437ef155668fdde6101109e064a2d1a04148e45b3747d5f98
+  patches:
+    - linklz4.patch
 
 build:
-  number: 5
+  number: 6
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
