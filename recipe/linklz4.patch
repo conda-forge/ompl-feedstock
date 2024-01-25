@@ -11,14 +11,13 @@ diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
 index 8e4044f169..24338257a5 100644
 --- a/tests/CMakeLists.txt
 +++ b/tests/CMakeLists.txt
-@@ -18,7 +18,10 @@ if (OMPL_BUILD_TESTS)
+@@ -18,7 +18,9 @@ if (OMPL_BUILD_TESTS)
      add_ompl_test(test_gridb datastructures/gridb.cpp)
      add_ompl_test(test_nearestneighbors datastructures/nearestneighbors.cpp)
      if(flann_FOUND)
 -        target_link_libraries(test_nearestneighbors ${FLANN_LIBRARIES})
 +        find_package(PkgConfig REQUIRED)
 +        pkg_check_modules(LZ4 REQUIRED liblz4)
-+        target_include_directories(test_nearestneighbors ${LZ4_INCLUDE_DIRS})
 +        target_link_libraries(test_nearestneighbors ${FLANN_LIBRARIES} ${LZ4_LINK_LIBRARIES})
      endif()
      add_ompl_test(test_pdf datastructures/pdf.cpp)
