@@ -1,0 +1,3 @@
+# match osx version used to build boost itself
+c_stdlib_version:          # [osx and x86_64]
+  - "10.13"                # [osx and x86_64]
