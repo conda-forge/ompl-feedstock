@@ -16,6 +16,8 @@ flann:
 - 1.9.2
 libboost_devel:
 - '1.82'
+libode:
+- 0.16.2
 macos_machine:
 - arm64-apple-darwin20.0.0
 numpy:
