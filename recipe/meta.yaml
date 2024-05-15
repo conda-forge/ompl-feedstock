@@ -1,5 +1,7 @@
 {% set name = "ompl" %}
 {% set version = "1.6.0" %}
+{% set major_version = version.split('.')[0] %}
+{% set minor_version = version.split('.')[1] %}
 
 package:
   name: {{ name|lower }}
@@ -42,7 +44,7 @@ test:
     - test -f $PREFIX/lib/libompl${SHLIB_EXT}  # [unix]
     - test -f $PREFIX/lib/pkgconfig/ompl.pc  # [unix]
     - test -f $PREFIX/share/ompl/cmake/omplConfig.cmake  # [unix]
-    - test -f $PREFIX/include/ompl-1.5/ompl/geometric/planners/rrt/RRT.h  # [unix]
+    - test -f $PREFIX/include/ompl-{{ major_version }}.{{ minor_version }}/ompl/geometric/planners/rrt/RRT.h  # [unix]
     - if not exist %LIBRARY_LIB%\\ompl.lib exit 1  # [win]
 
 about:
