@@ -5,9 +5,9 @@ c_compiler_version:
 c_stdlib:
 - sysroot
 c_stdlib_version:
-- '2.12'
+- '2.17'
 cdt_name:
-- cos6
+- cos7
 channel_sources:
 - conda-forge
 channel_targets:
@@ -21,14 +21,12 @@ docker_image:
 flann:
 - 1.9.2
 libboost_devel:
-- '1.82'
+- '1.86'
 libode:
 - 0.16.2
 numpy:
 - '1.22'
 pin_run_as_build:
-  flann:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
