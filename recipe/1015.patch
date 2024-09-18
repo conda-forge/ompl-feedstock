@@ -1,0 +1,42 @@
+From e5e8546e02c06c51fdf5c280333d3474d5b38037 Mon Sep 17 00:00:00 2001
+From: Sotiris Papatheodorou <sotiris@papatheodorou.xyz>
+Date: Mon, 3 Apr 2023 14:34:19 +0200
+Subject: [PATCH] Use more conservative types in PLY files
+
+In PLY files it is more common and well supported to use a uchar for the
+number of face vertices and an int for the vertex indices. These are
+also the types used in the PLY format description. Certain software
+(e.g. Meshlab) doesn't support using a uint for either type.
+
+http://paulbourke.net/dataformats/ply/
+---
+ src/ompl/base/spaces/constraint/src/AtlasStateSpace.cpp | 2 +-
+ src/ompl/base/src/PlannerData.cpp                       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/ompl/base/spaces/constraint/src/AtlasStateSpace.cpp b/src/ompl/base/spaces/constraint/src/AtlasStateSpace.cpp
+index ccf2da2b83..e76c68cf5b 100644
+--- a/src/ompl/base/spaces/constraint/src/AtlasStateSpace.cpp
++++ b/src/ompl/base/spaces/constraint/src/AtlasStateSpace.cpp
+@@ -540,7 +540,7 @@ void ompl::base::AtlasStateSpace::printPLY(std::ostream &out) const
+     out << "property float y\n";
+     out << "property float z\n";
+     out << "element face " << fcount << "\n";
+-    out << "property list uint uint vertex_index\n";
++    out << "property list uchar int vertex_index\n";
+     out << "end_header\n";
+     out << v.str() << f.str();
+ }
+diff --git a/src/ompl/base/src/PlannerData.cpp b/src/ompl/base/src/PlannerData.cpp
+index 92a67470bc..b03592cd66 100644
+--- a/src/ompl/base/src/PlannerData.cpp
++++ b/src/ompl/base/src/PlannerData.cpp
+@@ -842,7 +842,7 @@ void ompl::base::PlannerData::printPLY(std::ostream &out, const bool asIs) const
+         out << "property float z\n";
+ 
+     out << "element face " << fcount << "\n";
+-    out << "property list uint uint vertex_index\n";
++    out << "property list uchar int vertex_index\n";
+     out << "end_header\n";
+     out << v.str() << f.str();
+ }
