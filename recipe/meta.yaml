@@ -12,6 +12,8 @@ source:
   sha256: f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625
   patches:
     - linklz4.patch
+    - 1013.patch
+    - 1015.patch
 
 build:
   number: 1
