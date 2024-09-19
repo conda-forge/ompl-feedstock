@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/ompl/ompl/archive/02c1139ede4bfbbf26fedcae735631540a15235d.tar.gz
-  sha256: f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625
+  sha256: 501bcfeb94c30c38e565e5694d25f439b872433c8d3fd52b2d8ac7db3cec85bb
 
 build:
   number: 1
