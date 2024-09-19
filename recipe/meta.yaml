@@ -1,5 +1,5 @@
 {% set name = "ompl" %}
-{% set version = "1.6.0" %}
+{% set version = "1.6.0.1000" %}
 {% set major_version = version.split('.')[0] %}
 {% set minor_version = version.split('.')[1] %}
 
@@ -8,12 +8,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
+  url: https://github.com/ompl/ompl/archive/02c1139ede4bfbbf26fedcae735631540a15235d.tar.gz
   sha256: f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625
-  patches:
-    - linklz4.patch
-    - 1013.patch
-    - 1015.patch
 
 build:
   number: 1
