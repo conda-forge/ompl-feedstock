@@ -1,13 +1,15 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
+- '12.0'
+MACOSX_SDK_VERSION:
+- '12.0'
 c_compiler:
 - clang
 c_compiler_version:
-- '16'
+- '18'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- '11.0'
+- '12.0'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -15,11 +17,11 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '16'
+- '18'
 flann:
 - 1.9.2
 libboost_devel:
-- '1.82'
+- '1.84'
 libode:
 - 0.16.2
 macos_machine:
@@ -27,8 +29,6 @@ macos_machine:
 numpy:
 - '1.22'
 pin_run_as_build:
-  flann:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
