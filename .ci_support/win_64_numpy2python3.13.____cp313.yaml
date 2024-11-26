@@ -11,19 +11,17 @@ cxx_compiler:
 flann:
 - 1.9.2
 libboost_devel:
-- '1.82'
+- '1.84'
 libode:
-- 0.16.2
+- 0.16.5
 numpy:
-- '1.22'
+- '2'
 pin_run_as_build:
-  flann:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.13.* *_cp313
 target_platform:
 - win-64
 zip_keys:
