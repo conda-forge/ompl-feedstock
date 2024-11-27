@@ -13,7 +13,7 @@ flann:
 libboost_devel:
 - '1.86'
 libode:
-- 0.16.2
+- 0.16.5
 numpy:
 - '1.22'
 pin_run_as_build:
