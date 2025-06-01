@@ -10,8 +10,12 @@ cmake ${CMAKE_ARGS} \
 	  -G "Ninja" \
       $SRC_DIR
 
-ninja
-ninja install
+ninja -C build update_bindings
+cmake --build build
+ninja -C build install
+cd py-bindings || exit
+$PYTHON setup.py install
+cd ..
 
 
 if [[ "${target_platform}" == osx-* ]]; then
