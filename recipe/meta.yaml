@@ -10,8 +10,6 @@ package:
 source:
   url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
   sha256: e2e2700dfb0b4c2d86e216736754dd1b316bd6a46cc8818e1ffcbce4a388aca9
-  patches:
-    - linklz4.patch
 
 build:
   number: 0
