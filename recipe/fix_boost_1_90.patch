@@ -1,0 +1,22 @@
+From e534be52c669a5abab59bd3fa81c91172a6bc8ec Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Fri, 12 Jun 2026 18:21:59 +0200
+Subject: [PATCH] Remove system for boost 1.90.0 compatibility
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bb7797b606..bc655506aa 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -47,7 +47,7 @@ set_package_properties(Boost PROPERTIES
+     URL "https://www.boost.org"
+     PURPOSE "Used throughout OMPL for data serialization, graphs, etc.")
+ set(Boost_USE_MULTITHREADED ON)
+-find_package(Boost 1.68 REQUIRED COMPONENTS serialization filesystem system program_options)
++find_package(Boost 1.68 REQUIRED COMPONENTS serialization filesystem program_options)
+ 
+ # on macOS we need to check whether to use libc++ or libstdc++ with clang++
+ if(CMAKE_CXX_COMPILER_ID MATCHES "^(Apple)?Clang$")
