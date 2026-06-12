@@ -10,9 +10,11 @@ package:
 source:
   url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
   sha256: e2e2700dfb0b4c2d86e216736754dd1b316bd6a46cc8818e1ffcbce4a388aca9
+  patches:
+    - fix_boost_1_90.patch
 
 build:
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
