@@ -36,6 +36,8 @@ requirements:
     - libode
     - python
     - numpy
+    - pygccxml
+    - pyplusplus
   run:
     - python
 
