@@ -23,7 +23,6 @@ on motion planning that is centered around OMPL.app. We are looking for
 educational partners to use and further develop the material. Please contact
 us for more information.
 
-
 Current build status
 ====================
 
