@@ -1,34 +1,35 @@
-{% set name = "ompl" %}
-{% set version = "1.7.0" %}
-{% set major_version = version.split('.')[0] %}
-{% set minor_version = version.split('.')[1] %}
+context:
+  name: ompl
+  version: "1.7.0"
+  major_version: 1
+  minor_version: 7
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/ompl/ompl/archive/{{ version }}.tar.gz
+  url: https://github.com/ompl/ompl/archive/${{ version }}.tar.gz
   sha256: e2e2700dfb0b4c2d86e216736754dd1b316bd6a46cc8818e1ffcbce4a388aca9
   patches:
     - fix_boost_1_90.patch
 
 build:
-  number: 4
-  run_exports:
-    - {{ pin_subpackage(name, max_pin='x.x') }}
-
+  number: 5
+  
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ stdlib('c') }}
-    - {{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('cxx') }}
     - cmake
     - ninja
     - pkg-config
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
+    - if: build_platform!=target_platform
+      then:
+        - python                                       
+        - cross-python_${{ target_platform }}           
+        - numpy                                   
   host:
     - libboost-devel
     - eigen
@@ -38,17 +39,24 @@ requirements:
     - numpy
   run:
     - python
+  run_exports:
+    - ${{ pin_subpackage(name, upper_bound='x.x') }}
 
-test:
-  commands:
-    - test -f $PREFIX/lib/libompl${SHLIB_EXT}  # [unix]
-    - test -f $PREFIX/lib/pkgconfig/ompl.pc  # [unix]
-    - test -f $PREFIX/share/ompl/cmake/omplConfig.cmake  # [unix]
-    - test -f $PREFIX/include/ompl-{{ major_version }}.{{ minor_version }}/ompl/geometric/planners/rrt/RRT.h  # [unix]
-    - if not exist %LIBRARY_LIB%\\ompl.lib exit 1  # [win]
 
+tests:
+  - script:
+    - if: unix
+      then:
+        - test -f "${PREFIX}/lib/libompl${{ SHLIB_EXT }}"
+        - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
+        - test -f "${PREFIX}/share/ompl/cmake/omplConfig.cmake"
+        - test -f "${PREFIX}/include/ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h"
+    - if: win
+      then:
+        - if not exist %LIBRARY_LIB%\ompl.lib exit 1
+  
 about:
-  home: https://ompl.kavrakilab.org/
+  homepage: https://ompl.kavrakilab.org/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -64,8 +72,8 @@ about:
     educational partners to use and further develop the material. Please contact
     us for more information.
 
-  dev_url: https://github.com/ompl/ompl
-  doc_url: https://ompl.kavrakilab.org/
+  repository: https://github.com/ompl/ompl
+  documentation: https://ompl.kavrakilab.org/
 
 extra:
   recipe-maintainers:
