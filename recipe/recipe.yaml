@@ -1,6 +1,6 @@
 context:
   name: ompl
-  version: "1.7.0"
+  version: "2.0.1"
   major_version: 1
   minor_version: 7
 
@@ -10,13 +10,13 @@ package:
 
 source:
   url: https://github.com/ompl/ompl/archive/${{ version }}.tar.gz
-  sha256: e2e2700dfb0b4c2d86e216736754dd1b316bd6a46cc8818e1ffcbce4a388aca9
+  sha256: 365f052d5fb4419ed016394ddb26ab83dee6514b90565ad30af044a09b122aef
   patches:
     - fix_boost_1_90.patch
 
 build:
-  number: 5
-  
+  number: 0
+
 requirements:
   build:
     - ${{ compiler('c') }}
@@ -27,9 +27,9 @@ requirements:
     - pkg-config
     - if: build_platform!=target_platform
       then:
-        - python                                       
-        - cross-python_${{ target_platform }}           
-        - numpy                                   
+        - python
+        - cross-python_${{ target_platform }}
+        - numpy
   host:
     - libboost-devel
     - eigen
@@ -45,16 +45,16 @@ requirements:
 
 tests:
   - script:
-    - if: unix
-      then:
-        - test -f "${PREFIX}/lib/libompl${{ SHLIB_EXT }}"
-        - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
-        - test -f "${PREFIX}/share/ompl/cmake/omplConfig.cmake"
-        - test -f "${PREFIX}/include/ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h"
-    - if: win
-      then:
-        - if not exist %LIBRARY_LIB%\ompl.lib exit 1
-  
+      - if: unix
+        then:
+          - test -f "${PREFIX}/lib/libompl${{ SHLIB_EXT }}"
+          - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
+          - test -f "${PREFIX}/share/ompl/cmake/omplConfig.cmake"
+          - test -f "${PREFIX}/include/ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h"
+      - if: win
+        then:
+          - if not exist %LIBRARY_LIB%\ompl.lib exit 1
+
 about:
   homepage: https://ompl.kavrakilab.org/
   license: BSD-3-Clause
