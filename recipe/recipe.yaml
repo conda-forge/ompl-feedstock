@@ -1,8 +1,6 @@
 context:
   name: ompl
   version: "2.0.1"
-  major_version: 1
-  minor_version: 7
 
 package:
   name: ${{ name|lower }}
@@ -11,8 +9,6 @@ package:
 source:
   url: https://github.com/ompl/ompl/archive/${{ version }}.tar.gz
   sha256: 365f052d5fb4419ed016394ddb26ab83dee6514b90565ad30af044a09b122aef
-  patches:
-    - fix_boost_1_90.patch
 
 build:
   number: 0
@@ -50,7 +46,7 @@ tests:
           - test -f "${PREFIX}/lib/libompl${{ SHLIB_EXT }}"
           - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
           - test -f "${PREFIX}/share/ompl/cmake/omplConfig.cmake"
-          - test -f "${PREFIX}/include/ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h"
+          - test -f "${PREFIX}/include/ompl/geometric/planners/rrt/RRT.h"
       - if: win
         then:
           - if not exist %LIBRARY_LIB%\ompl.lib exit 1
