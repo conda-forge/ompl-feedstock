@@ -15,8 +15,8 @@ source:
     - fix_boost_1_90.patch
 
 build:
-  number: 5
-  
+  number: 6
+
 requirements:
   build:
     - ${{ compiler('c') }}
@@ -27,9 +27,9 @@ requirements:
     - pkg-config
     - if: build_platform!=target_platform
       then:
-        - python                                       
-        - cross-python_${{ target_platform }}           
-        - numpy                                   
+        - python
+        - cross-python_${{ target_platform }}
+        - numpy
   host:
     - libboost-devel
     - eigen
@@ -45,16 +45,16 @@ requirements:
 
 tests:
   - script:
-    - if: unix
-      then:
-        - test -f "${PREFIX}/lib/libompl${{ SHLIB_EXT }}"
-        - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
-        - test -f "${PREFIX}/share/ompl/cmake/omplConfig.cmake"
-        - test -f "${PREFIX}/include/ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h"
-    - if: win
-      then:
-        - if not exist %LIBRARY_LIB%\ompl.lib exit 1
-  
+      - if: unix
+        then:
+          - test -f "${PREFIX}/lib/libompl${{ SHLIB_EXT }}"
+          - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
+          - test -f "${PREFIX}/share/ompl/cmake/omplConfig.cmake"
+          - test -f "${PREFIX}/include/ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h"
+      - if: win
+        then:
+          - if not exist %LIBRARY_LIB%\ompl.lib exit 1
+
 about:
   homepage: https://ompl.kavrakilab.org/
   license: BSD-3-Clause
