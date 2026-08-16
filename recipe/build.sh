@@ -2,12 +2,20 @@
 
 mkdir build && cd build
 
+# CMake cannot currently locate the target Python interpreter and nanobind
+# together when cross-compiling for ppc64le.
+if [[ "${target_platform}" == "linux-ppc64le" ]]; then
+  OMPL_BUILD_PYTHON_BINDINGS=OFF
+else
+  OMPL_BUILD_PYTHON_BINDINGS=ON
+fi
+
 cmake ${CMAKE_ARGS} \
 	  -DCMAKE_INSTALL_PREFIX=$PREFIX \
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_INSTALL_LIBDIR=lib \
 	  -DOMPL_BUILD_DEMOS=OFF \
-	  -DOMPL_BUILD_PYTHON_BINDINGS=ON \
+	  -DOMPL_BUILD_PYTHON_BINDINGS=${OMPL_BUILD_PYTHON_BINDINGS} \
 	  -DOMPL_BUILD_VAMP=OFF \
 	  -G "Ninja" \
       $SRC_DIR

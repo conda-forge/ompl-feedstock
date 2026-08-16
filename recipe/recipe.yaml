@@ -38,6 +38,7 @@ requirements:
     - python
     - numpy
     - nanobind
+    - typing-extensions
   run:
     - python
   run_exports:
@@ -45,15 +46,17 @@ requirements:
 
 
 tests:
-  - python:
-      imports:
-        - ompl
-        - ompl.base
-        - ompl.control
-        - ompl.geometric
-        - ompl.tools
-        - ompl.util
-      pip_check: false
+  - if: not ppc64le
+    then:
+      python:
+        imports:
+          - ompl
+          - ompl.base
+          - ompl.control
+          - ompl.geometric
+          - ompl.tools
+          - ompl.util
+        pip_check: false
   - script:
       - if: unix
         then:
