@@ -1,0 +1,26 @@
+From: conda-forge <conda-forge@users.noreply.github.com>
+Subject: [PATCH] Find nanobind from the build environment
+
+GitHub source archives do not include submodules. Allow distributions to
+provide nanobind as a regular CMake package instead of requiring the vendored
+checkout.
+
+--- a/CMakeModules/OMPLDependencies.cmake
++++ b/CMakeModules/OMPLDependencies.cmake
+@@ -92,9 +92,13 @@ set_package_properties(Nanobind PROPERTIES
+     URL "https://github.com/wjakob/nanobind"
+     PURPOSE "Used for building Python bindings.")
+ 
+-if(OMPL_HAVE_PYTHON AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/external/nanobind/CMakeLists.txt")
+-    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external/nanobind)
+-    set(OMPL_HAVE_NANOBIND 1)
++if(OMPL_HAVE_PYTHON)
++    find_package(nanobind CONFIG QUIET
++        PATHS "${Python_SITELIB}/nanobind/cmake"
++              "${Python_SITEARCH}/nanobind/cmake")
++endif()
++if(nanobind_FOUND)
++    set(OMPL_HAVE_NANOBIND 1)
+ else()
+     set(OMPL_HAVE_NANOBIND 0)
+ endif()

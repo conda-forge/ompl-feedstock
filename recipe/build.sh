@@ -7,6 +7,8 @@ cmake ${CMAKE_ARGS} \
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_INSTALL_LIBDIR=lib \
 	  -DOMPL_BUILD_DEMOS=OFF \
+	  -DOMPL_BUILD_PYTHON_BINDINGS=ON \
+	  -DOMPL_BUILD_VAMP=OFF \
 	  -G "Ninja" \
       $SRC_DIR
 
