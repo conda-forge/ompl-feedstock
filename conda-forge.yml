@@ -1,7 +1,6 @@
 conda_build_tool: rattler-build
 build_platform:
   linux_aarch64: linux_aarch64
-  linux_ppc64le: linux_64
   osx_arm64: osx_arm64
 bot:
   abi_migration_branches:
@@ -12,6 +11,5 @@ github:
   tooling_branch_name: main
 provider:
   linux_aarch64: default
-  linux_ppc64le: default
   osx_arm64: default
 test: native_and_emulated

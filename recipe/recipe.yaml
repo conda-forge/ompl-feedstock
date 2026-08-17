@@ -46,17 +46,15 @@ requirements:
 
 
 tests:
-  - if: not ppc64le
-    then:
-      python:
-        imports:
-          - ompl
-          - ompl.base
-          - ompl.control
-          - ompl.geometric
-          - ompl.tools
-          - ompl.util
-        pip_check: false
+  - python:
+      imports:
+        - ompl
+        - ompl.base
+        - ompl.control
+        - ompl.geometric
+        - ompl.tools
+        - ompl.util
+      pip_check: false
   - script:
       - if: unix
         then:
