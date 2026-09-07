@@ -15,6 +15,7 @@ source:
     - use-system-nanobind.patch
     - 1467.patch
     - support_windows_shared.patch
+    - 1468.patch
 
 build:
   number: 1
