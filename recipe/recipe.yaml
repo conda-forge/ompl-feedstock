@@ -14,6 +14,7 @@ source:
   patches:
     - use-system-nanobind.patch
     - 1467.patch
+    - support_windows_shared.patch
 
 build:
   number: 1
@@ -55,17 +56,27 @@ tests:
         - ompl.geometric
         - ompl.tools
         - ompl.util
-      pip_check: true
+
+  - package_contents:
+      include:
+        - ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h
+      lib:
+        - ompl
+
   - script:
-      - if: unix
+      - cmake-package-check ompl --targets ompl::ompl
+      - if: not win
         then:
-          - test -f "${PREFIX}/lib/libompl${{ SHLIB_EXT }}"
-          - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
-          - test -f "${PREFIX}/share/ompl/cmake/omplConfig.cmake"
-          - test -f "${PREFIX}/include/ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h"
-      - if: win
-        then:
-          - if not exist %LIBRARY_LIB%\ompl.lib exit 1
+          - pkg-config --print-errors --exists ompl
+          - pkg-config --modversion ompl
+    requirements:
+      run:
+        - cmake-package-check
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - if: not win
+          then:
+            - pkg-config
 
 about:
   homepage: https://ompl.kavrakilab.org/
