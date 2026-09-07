@@ -15,6 +15,7 @@ cmake ^
     -DOMPL_BUILD_TESTS=OFF ^
     -DOMPL_BUILD_PYTESTS=OFF ^
     -DOMPL_REGISTRATION=OFF ^
+	-DOMPL_BUILD_SHARED:BOOL=ON ^
     %SRC_DIR%
 if errorlevel 1 exit 1
 
