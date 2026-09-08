@@ -62,16 +62,21 @@ tests:
         - ompl.util
 
   - package_contents:
+      files:
+        - if: win
+          then:
+            - Library/lib/ompl.lib
+          else:
+            - lib/pkgconfig/ompl.pc
       include:
         - ompl-${{ major_version }}.${{ minor_version }}/ompl/geometric/planners/rrt/RRT.h
       lib:
-        - ompl
+        - if: not win
+          then:
+            - ompl
 
   - script:
       - cmake-package-check ompl --targets ompl::ompl
-      - if: not win
-        then:
-          - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
     requirements:
       run:
         - cmake-package-check
