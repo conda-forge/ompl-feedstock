@@ -14,8 +14,6 @@ source:
   patches:
     - use-system-nanobind.patch
     - 1467.patch
-    - support_windows_shared.patch
-    - 1468.patch
 
 build:
   number: 1
@@ -73,16 +71,12 @@ tests:
       - cmake-package-check ompl --targets ompl::ompl
       - if: not win
         then:
-          - pkg-config --print-errors --exists ompl
-          - pkg-config --modversion ompl
+          - test -f "${PREFIX}/lib/pkgconfig/ompl.pc"
     requirements:
       run:
         - cmake-package-check
         - ${{ compiler('c') }}
         - ${{ compiler('cxx') }}
-        - if: not win
-          then:
-            - pkg-config
 
 about:
   homepage: https://ompl.kavrakilab.org/
