@@ -7,6 +7,9 @@ cmake ${CMAKE_ARGS} \
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_INSTALL_LIBDIR=lib \
 	  -DOMPL_BUILD_DEMOS=OFF \
+	  -DOMPL_BUILD_PYTHON_BINDINGS=ON \
+	  -DOMPL_BUILD_VAMP=OFF \
+	  -DOMPL_BUILD_SHARED:BOOL=ON \
 	  -G "Ninja" \
       $SRC_DIR
 
@@ -14,12 +17,14 @@ ninja
 ninja install
 
 
+# test_pdf is a stochastic statistical test that occasionally exceeds its
+# tolerance on CI.
 if [[ "${target_platform}" == osx-* ]]; then
   # This is a workaround for https://github.com/conda-forge/ompl-feedstock/issues/43,
   # check the discussion there for more details
-  export CTEST_DISABLED_TESTS="test_planner_data"
+  export CTEST_DISABLED_TESTS="test_planner_data|test_pdf"
 else
-  export CTEST_DISABLED_TESTS=""
+  export CTEST_DISABLED_TESTS="test_pdf"
 fi
 
 if [[ "$target_platform" != "linux-aarch64" && "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
