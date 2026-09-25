@@ -1,7 +1,4 @@
 conda_build_tool: rattler-build
-build_platform:
-  linux_aarch64: linux_aarch64
-  osx_arm64: osx_arm64
 bot:
   abi_migration_branches:
     - v1.7
