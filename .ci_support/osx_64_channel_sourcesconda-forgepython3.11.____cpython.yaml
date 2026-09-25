@@ -18,6 +18,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '21'
+eigen_abi_devel:
+- 5.0.1
 flann:
 - 1.9.2
 libboost_devel:
@@ -39,3 +41,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - channel_sources
